@@ -14,3 +14,11 @@ config/name="TowerDefense"
 run/main_scene="res://.godot/gaem.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
