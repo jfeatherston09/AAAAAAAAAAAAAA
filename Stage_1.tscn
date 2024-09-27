@@ -16,4 +16,4 @@ curve = SubResource("Curve2D_phadt")
 position = Vector2(49, -16)
 rotation = 1.60109
 
-[node name="Slime" parent="PathFollow2D" instance=ExtResource("1_yxwyg")]
+[node name="Slime A" parent="PathFollow2D" instance=ExtResource("1_yxwyg")]
