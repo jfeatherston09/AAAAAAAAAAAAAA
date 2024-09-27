@@ -15,9 +15,9 @@ func _on_tower_body_entered(body):
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
 
-		for i in currTargets:
-			if "Slime" in i.name:
-				tempArray.append(1)
+		for target in currTargets:
+			if "Slime" in target.name:
+				tempArray.append(target)
 
 		var currTarget = null
 				
