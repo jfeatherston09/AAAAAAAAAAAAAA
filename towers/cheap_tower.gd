@@ -1,9 +1,9 @@
 extends StaticBody2D
 
 
-var Bullet = preload("res://towers/red_bullet.tscn")
+var bullet : PackedScene = preload("res://towers/red_bullet.tscn")
 var bulletDamage = 5
-var pathName 
+var pathName
 var currTargets = []
 var curr
 
@@ -31,10 +31,9 @@ func _on_tower_body_entered(body):
 		curr = currTargets
 		pathName = currTarget.get_parent().name
 		
-		var tempBullet = Bullet.instantiate()
-		tempBullet.pathName = pathName
+		var tempBullet : Bullet = bullet.instantiate()
 		tempBullet.bulletDamage = bulletDamage
-		get_node("BulletContainer").add_child(tempBullet)
+		get_node("BulletContainer").call_deferred("add_child",tempBullet)
 		tempBullet.global_position = $Aim.global_position
 
 func _on_tower_body_exited(body):
