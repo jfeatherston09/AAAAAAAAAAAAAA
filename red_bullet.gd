@@ -1,10 +1,10 @@
 extends CharacterBody2D
 class_name Bullet
 
-var target : Vector2
-var Speed = 100
+var Speed = 10
 var pathName = ""
 var bulletDamage : int
+var target : Node2D = null
 
 func _physics_process(delta):
 	var pathSpawnerNode = get_tree().get_root().get_node("Level/PathSpawner")
@@ -13,11 +13,11 @@ func _physics_process(delta):
 			target = pathSpawnerNode.get_child(i).get_child(0).get_child(0).get_child(0).global_position
 
 	if(target !=null):
-		velocity = global_position.direction_to(target) *Speed
+		velocity = global_position.direction_to(target.global_position) *Speed
 
-		look_at(target)
+		look_at(target.global_position)
 
-		move_and_slide()
+		move_and_collide(velocity)
 	
 	else:
 		queue_free()
