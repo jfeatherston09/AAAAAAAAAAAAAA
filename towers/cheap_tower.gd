@@ -23,16 +23,18 @@ func _on_tower_body_entered(body):
 				
 		for i in tempArray:
 			if currTarget == null:
-				currTarget = i.get_node("../")
+				currTarget = i
 			else:
-				if i.get_parent().get_progress() > currTarget.get_progress():
-					currTarget = i.get_node("../")
+				if i.get_parent().get_progress() > currTarget.get_parent().get_progress():
+					currTarget = i
 
+		print(currTarget.get_class())
 		curr = currTargets
 		pathName = currTarget.get_parent().name
 		
-		var tempBullet : Bullet = bullet.instantiate()
+		var tempBullet  = bullet.instantiate()
 		tempBullet.bulletDamage = bulletDamage
+		tempBullet.target = currTarget
 		get_node("BulletContainer").call_deferred("add_child",tempBullet)
 		tempBullet.global_position = $Aim.global_position
 
