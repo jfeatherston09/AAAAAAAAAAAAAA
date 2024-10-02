@@ -39,4 +39,4 @@ func _on_tower_body_entered(body):
 		tempBullet.global_position = $Aim.global_position
 
 func _on_tower_body_exited(body):
-	pass
+	currTargets = get_node("Tower").get_overlapping_bodies()
