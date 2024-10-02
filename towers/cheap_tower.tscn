@@ -10,6 +10,8 @@ size = Vector2(55, 43)
 radius = 139.607
 
 [node name="CheapTower" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2gubn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,8 +27,6 @@ scale = Vector2(0.728308, 0.93902)
 texture = ExtResource("1_wn33e")
 
 [node name="Tower" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 16
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
 shape = SubResource("CircleShape2D_nyyu8")
@@ -34,3 +34,4 @@ shape = SubResource("CircleShape2D_nyyu8")
 [node name="BulletContainer" type="Node" parent="."]
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
