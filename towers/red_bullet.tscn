@@ -12,17 +12,18 @@ height = 36.0
 [node name="redBullet" type="CharacterBody2D"]
 script = ExtResource("1_8hfbw")
 
+[node name="Bullet" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_4mhs3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x38tv")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_awkcl")
 
-[node name="Bullet" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("1_4mhs3")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
