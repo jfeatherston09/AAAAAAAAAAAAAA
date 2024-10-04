@@ -10,7 +10,6 @@ var curr
 func _process(delta):
 	if is_instance_valid(curr):
 		self.look_at(curr.global_position)
-		
 
 func _on_tower_body_entered(body):
 	if "Slime A" in body.name:
