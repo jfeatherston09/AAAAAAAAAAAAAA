@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c3llk6pgtifg1" path="res://assets/sprites/background.png" id="1_r3vbd"]
 [ext_resource type="Script" path="res://scenes/path_spawner.gd" id="2_ar6d0"]
-[ext_resource type="PackedScene" uid="uid://dlo50lfw6ruwc" path="res://towers/cheap_tower.tscn" id="3_4l0m5"]
+[ext_resource type="PackedScene" uid="uid://fhdlcdbubam3" path="res://scenes/ui.tscn" id="3_403h3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ic3do"]
 texture = ExtResource("1_r3vbd")
@@ -49,10 +49,8 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="CheapTower" parent="." instance=ExtResource("3_4l0m5")]
-position = Vector2(242, 111)
-
-[node name="CheapTower2" parent="." instance=ExtResource("3_4l0m5")]
-position = Vector2(94, 171)
+[node name="UI" parent="." instance=ExtResource("3_403h3")]
+offset = Vector2(1780, 0)
+transform = Transform2D(1, 0, 0, 1, 1780, 0)
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
